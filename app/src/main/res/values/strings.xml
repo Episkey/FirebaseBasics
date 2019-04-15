@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FirebaseBasics</string>
+    <string name="textview"> Save your best score</string>
+    <string name="enter_your_pseudo">Enter your pseudo</string>
+    <string name="enter_your_score">Enter your score</string>
+    <string name="fill_all_fields">Please fill all the fields !</string>
+    <string name="save">Save</string>
+    <string name="failed">Failed to read value.</string>
+</resources>
