@@ -2,6 +2,7 @@ package com.example.firebasebasics;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,6 +40,33 @@ public class MainActivity extends AppCompatActivity {
                     playerRef.push().setValue(players);
                 }
             }
+
+
         });
+
+        Button buttonScore = findViewById(R.id.bestScore);
+        buttonScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference playerRef = database.getReference("players");
+                playerRef.orderByChild("name").equalTo("Staline").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot playerSnapshot : dataSnapshot.getChildren()) {
+                            Players players =
+                                    playerSnapshot.getValue(Players.class);
+                            Log.d("firebase_debug", "score : " + players.getScore());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+
+            }
+        });
+
     }
 }

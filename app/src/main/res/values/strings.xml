@@ -6,4 +6,5 @@
     <string name="fill_all_fields">Please fill all the fields !</string>
     <string name="save">Save</string>
     <string name="failed">Failed to read value.</string>
+    <string name="best_string_enter_your_score">Best @string/enter_your_score</string>
 </resources>
